@@ -47,8 +47,10 @@ public class Course {
     }
 
     public void addStudents(Student student) {
+        if (student != null && !students.contains(student)){
         students.add(student);
         student.addCourses(this);
+        }
     }
 
     public List<Module> getModules() {
@@ -56,8 +58,10 @@ public class Course {
     }
 
     public void addModules(Module module) {
+        if (module != null && !modules.contains(module)){
         modules.add(module);
         module.addCourses(this);
+        }
     }
 
     @Override
