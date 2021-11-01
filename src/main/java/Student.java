@@ -66,6 +66,7 @@ public class Student {
 
     public void addModules(Module module) {
         modules.add(module);
+        module.addStudents(this);
     }
 
     public List<Course> getCourses() {

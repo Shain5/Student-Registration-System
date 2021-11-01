@@ -37,6 +37,7 @@ public class Module {
 
     public void addStudents(Student student){
         students.add(student);
+        student.addModules(this);
     }
 
     public List<Course> getCourses() {
@@ -45,6 +46,7 @@ public class Module {
 
     public void addCourses(Course course) {
         courses.add(course);
+        course.addModules(this);
     }
 
     @Override
