@@ -20,3 +20,15 @@ dependencies {
 test {
     useJUnit()
 }
+
+publishing{
+    publications{
+        maven(MavenPublication){
+            groupId = 'com.github.Shain5'
+            artifactId = 'Student-Registration-System'
+            version = 'main-SNAPSHOT'
+
+            from components.java
+        }
+    }
+}
