@@ -1,20 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Compile Stage') {
+        stage('Clean') {
             steps {
-			 echo 'Compiling and building the projectt.'
+                sh './gradlew clean'
             }
         }
-        stage('Testing stage') {
+        stage('Build') {
             steps {
-			echo 'Testing the project'
+                sh './gradlew build'
             }
         }
-        stage('Deployment Stage') {
+        stage('Test') {
             steps {
-			 echo 'Deploying the project'
+                sh './gradlew test'
             }
+        }
+    }
+    post {
+        always {
+            junit 'build/test-results/test/*.xml'
         }
     }
 }
