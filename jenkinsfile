@@ -1,19 +1,24 @@
 pipeline {
     agent any
+
+	tools {
+	 gradle 'gradle'
+	}
+
     stages {
-        stage('clean') {
+        stage('Compile Stage') {
             steps {
-                sh './gradlew clean'
+			 echo 'Compiling and building the projectt.'
             }
         }
-        stage('build') {
+        stage('Testing stage') {
             steps {
-                sh './gradlew build'
+			echo 'Testing the project'
             }
         }
-        stage('test'){
+        stage('Deployment Stage') {
             steps {
-                sh './gradlew test'
+			 echo 'Deploying the project'
             }
         }
     }
