@@ -1,14 +1,20 @@
 pipeline {
-
     agent any
     stages {
-    stage('gradle'){
-        steps{
-            echo 'executing gradle'
-            withGradle(){
-                bat './gradlew -v'
+        stage('clean') {
+            steps {
+                bat './gradlew clean'
             }
         }
-    }
+        stage('build') {
+            steps {
+                bat './gradlew build'
+            }
+        }
+        stage('test'){
+            steps {
+                bat './gradlew test'
+            }
+        }
     }
 }
